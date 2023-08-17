@@ -14,8 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (mail($to, $subject, $messageBody, $headers)) {
         echo "success";
     } else {
-        echo "error";
+        echo "error: " . error_get_last()['message'];
     }
+    
 } else {
     echo "invalid request";
 }
